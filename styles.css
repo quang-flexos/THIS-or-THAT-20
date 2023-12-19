@@ -1,0 +1,135 @@
+main {
+  background-color: var(--color--secondary--200);
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.tab {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--gray--gray-300);
+  padding: 0.5rem;
+  border-radius: var(--global--small);
+  background-color: var(--color--secondary--50);
+  gap: 0.5rem;
+}
+
+.tab>button {
+  flex: 1;
+  border-radius: var(--global--xsmall);
+  padding: 0.5rem 1rem;
+  background: transparent;
+  transition: 200ms ease-in-out;
+  min-width: 10rem;
+  overflow-x: auto;
+}
+
+.tab>button.active {
+  background-color: var(--neutral--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .06);
+  transition: 200ms ease-in-out;
+}
+
+#cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  transition: 200ms ease-in-out;
+  position: relative;
+}
+
+.new-card {
+  flex: 1;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--neutral--white);
+  transition: transform 0.3s;
+  aspect-ratio: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 20rem;
+}
+
+.new-card h2 {
+  margin-bottom: 0.25rem;
+}
+
+.new-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.new-card:active {
+  transform: translateY(5px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-card.active {
+  transition: 500ms;
+  border: 0.25rem solid var(--color--secondary--500);
+  z-index: 2;
+}
+
+.new-card.active h2 {
+  transition: 200ms;
+  font-size: var(--h1--text-size);
+  line-height: var(--h1--text-height);
+}
+
+#cards #next {
+  border: 2px solid var(--gray--gray-500);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: var(--gray--gray-700);
+  color: var(--neutral--white);
+  position: absolute;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .tab button {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  #cards #next {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  #cards {
+    flex-direction: column;
+  }
+
+  .new-card {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .tab {
+    overflow-x: auto;
+  }
+
+  
+}

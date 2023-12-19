@@ -43,7 +43,7 @@ const mode = {
         "Fast-paced startup or established corporate environment",
         "Working in a quiet environment or in a bustling space",
         "Slack emojis or memes",
-        "\"Bring Your Pet to Work\" days or \"Bring Your Child to Work\"",
+        "Bring Your Pet to Work days or Bring Your Child to Work",
         "Morning meetings or afternoon meetings",
         "Solving problems independently or seeking helps",
         "Spontaneity or planning ahead",
@@ -188,12 +188,14 @@ function toTitleCase(str) {
 }
 
 // Add event listeners
-document.querySelectorAll('.tab button').forEach(button => {
+document.querySelectorAll('.tab button').forEach((button, index) => {
   button.addEventListener('click', function() {
     setActiveTab(this);
-    loadRandomQuestion();
+    modeIndex = index; // Set modeIndex based on the tab index
+    loadMode(modeIndex); // Load questions for the selected mode
   });
 });
+
 
 [nextButton, cardLeft, cardRight].forEach(element => {
   element.addEventListener('click', handleCardClick);
